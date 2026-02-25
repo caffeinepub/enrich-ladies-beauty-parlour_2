@@ -1,0 +1,10 @@
+{
+  "frontend/src/App.tsx": "Main app router with all routes wired including BookAppointment, BookingConfirmation, CustomerReviews, and CustomerProfile pages.",
+  "frontend/src/pages/LoginPage.tsx": "Login/signup page with email/password fields, Sign In/Sign Up toggle, Google button using SiGoogle, and Microsoft button using a custom colored-squares icon (SiMicrosoft removed from react-icons/si).",
+  "frontend/src/pages/BookAppointment.tsx": "Three-step appointment booking flow — service selection with pricing/discounts, date/time picker with holiday blocking, and customer details form with backend submission.",
+  "frontend/src/pages/BookingConfirmation.tsx": "Booking confirmation page that safely casts all booking detail values from `unknown` to `string` before rendering, displaying full appointment info with salon contact details and a back-to-home button.",
+  "frontend/src/pages/CustomerReviews.tsx": "Customer reviews page with interactive star rating selector, review text submission, display of own reviews with owner replies, and all other customer reviews.",
+  "frontend/src/pages/CustomerProfile.tsx": "Customer profile page showing account info, appointment history with status badges, salon contact details, and a logout button.",
+  "frontend/src/index.css": "Global styles with luxury purple OKLCH color system, Google Fonts import for Playfair Display and Cormorant Garamond, splash screen animations, and smooth transition utilities.",
+  "frontend/tailwind.config.js": "Tailwind config extended with Playfair Display and Cormorant Garamond font families, luxury shadow presets, and fade/slide/scale animation keyframes."
+}

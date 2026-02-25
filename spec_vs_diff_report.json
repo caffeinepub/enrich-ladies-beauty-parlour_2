@@ -1,0 +1,116 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-25T03:52:03.915Z",
+  "summary": "The diff implements a large portion of the requested features including splash screen, login, owner/customer dashboards, booking flow, services management, reviews, profile, theme customization, and chat. However, several specific requirements are only partially or not implemented: the backend uses Motoko only for appointments (not services, reviews, profile, theme, holidays, announcements), passwords are stored in plaintext in localStorage (not hashed in backend), and theme/font counts (50+ each) cannot be verified from the diff.",
+  "missing_requirements": [
+    {
+      "id": "REQ-3",
+      "requirement": "Store user accounts with email, hashed password, and role (owner or customer) in the Motoko backend",
+      "reason": "User accounts are stored in localStorage/sessionStorage in plain text (authStore.ts), not in the Motoko backend with hashed passwords. The backend main.mo has no user account storage.",
+      "evidence": [
+        "frontend/src/lib/authStore.ts",
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "requirement": "Holiday dates, announcements must be persisted in the Motoko backend; booking system blocks holiday dates",
+      "reason": "Holidays and announcements are stored in localStorage via localStore.ts, not in the Motoko backend. The backend only handles appointments.",
+      "evidence": [
+        "frontend/src/lib/localStore.ts",
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "requirement": "Services data must be persisted in the Motoko backend",
+      "reason": "Services are stored in localStorage via localStore.ts, not in the Motoko backend which has no service-related functions.",
+      "evidence": [
+        "frontend/src/lib/localStore.ts",
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "requirement": "At least 50 theme options and 50 font style options must be available; selected theme and font stored in backend and reflected for all users",
+      "reason": "Theme settings are stored in localStorage, not in the Motoko backend. No backend functions for storing or retrieving theme are visible in main.mo. The actual count of 50+ themes and fonts cannot be confirmed from the diff.",
+      "evidence": [
+        "frontend/src/lib/localStore.ts",
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "requirement": "Reviews must be persisted in the Motoko backend and visible in Owner Dashboard",
+      "reason": "Reviews are stored in localStorage via localStore.ts, not in the Motoko backend which has no review-related functions.",
+      "evidence": [
+        "frontend/src/lib/localStore.ts",
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "requirement": "Business profile information must be persisted in the Motoko backend",
+      "reason": "Profile data is stored in localStorage via localStore.ts, not in the Motoko backend which has no profile-related functions.",
+      "evidence": [
+        "frontend/src/lib/localStore.ts",
+        "backend/main.mo"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Internet Identity / ICP actor authentication layer implemented alongside email/password login",
+      "reason": "The app includes full Internet Identity (ICP/DFINITY) integration via useInternetIdentity.ts and useActor.ts, which is an external authentication system not requested. The build request specifies standard web login only and no external database.",
+      "evidence": [
+        "frontend/src/hooks/useInternetIdentity.ts",
+        "frontend/src/hooks/useActor.ts",
+        "frontend/src/main.tsx"
+      ]
+    },
+    {
+      "description": "Access control initialized via a secret admin token from URL parameters (_initializeAccessControlWithSecret / caffeineAdminToken)",
+      "reason": "This undocumented admin token mechanism was not requested in the build request and introduces an authentication pattern not described anywhere in the requirements.",
+      "evidence": [
+        "frontend/src/hooks/useActor.ts"
+      ]
+    }
+  ],
+  "confidence": 0.72,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/AppointmentChatBox.tsx",
+    "frontend/src/components/CustomerLayout.tsx",
+    "frontend/src/components/OwnerLayout.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/lib/authStore.ts",
+    "frontend/src/lib/localStore.ts",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/BookAppointment.tsx",
+    "frontend/src/pages/BookingConfirmation.tsx",
+    "frontend/src/pages/CustomerDashboard.tsx",
+    "frontend/src/pages/CustomerProfile.tsx",
+    "frontend/src/pages/CustomerReviews.tsx",
+    "frontend/src/pages/LoginPage.tsx",
+    "frontend/src/pages/ManageServices.tsx",
+    "frontend/src/pages/OurServices.tsx",
+    "frontend/src/pages/OwnerAppointmentsOfDay.tsx",
+    "frontend/src/pages/OwnerDashboard.tsx",
+    "frontend/src/pages/OwnerProfile.tsx",
+    "frontend/src/pages/OwnerReviews.tsx",
+    "frontend/src/pages/SplashScreen.tsx",
+    "frontend/src/pages/ThemeCustomization.tsx",
+    "frontend/src/utils/urlParams.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

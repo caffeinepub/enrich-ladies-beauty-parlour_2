@@ -1,0 +1,286 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-splash-screen-that-displays-the-salon-logo-and-the-name-enrich-ladies-beauty-parlour-the-splash-screen-should-be-shown-on-first-load-before-navigating-to-the-login-page",
+      "featureTitle": "Create a splash screen that displays the salon logo and the name 'Enrich Ladies Beauty Parlour'. The splash screen should be shown on first load before navigating to the login page.",
+      "files": [
+        "frontend/src/App.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-login-page-with-an-email-gmail-id-field-a-password-field-a-sign-in-button-a-sign-up-option-for-new-users-a-continue-with-google-option-and-a-continue-with-microsoft-option-email-and-password-fields-must-appear-before-the-google-and-microsoft-login-options",
+      "featureTitle": "Create a login page with an Email (Gmail ID) field, a Password field, a Sign In button, a Sign Up option for new users, a 'Continue with Google' option, and a 'Continue with Microsoft' option. Email and password fields must appear before the Google and Microsoft login options.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/LoginPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-role-based-access-control-in-the-backend-if-the-login-email-matches-enrichbeautyparlour29-gmail-com-and-password-shreyash-29-authenticate-as-the-owner-and-load-the-owner-dashboard-any-other-valid-registered-email-loads-the-customer-dashboard-store-user-accounts-with-email-hashed-password-and-role-owner-or-customer-in-the-backend",
+      "featureTitle": "Implement role-based access control in the backend. If the login email matches 'enrichbeautyparlour29@gmail.com' and password 'Shreyash_29', authenticate as the Owner and load the Owner Dashboard. Any other valid registered email loads the Customer Dashboard. Store user accounts with email, hashed password, and role (owner or customer) in the backend.",
+      "files": [
+        "frontend/src/App.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-the-owner-dashboard-with-a-three-dot-menu-at-the-top-right-corner-containing-navigation-items-home-appointments-of-the-day-manage-services-theme-customization-reviews-profile-and-logout",
+      "featureTitle": "Build the Owner Dashboard with a three-dot menu at the top-right corner containing navigation items: Home, Appointments of the Day, Manage Services, Theme & Customization, Reviews, Profile, and Logout.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/OwnerLayout.tsx",
+        "frontend/src/pages/OwnerDashboard.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-the-owner-home-section-allow-the-owner-to-post-daily-status-or-announcements-provide-a-calendar-interface-to-select-and-mark-multiple-dates-as-holidays-automatically-disable-bookings-on-selected-holiday-dates-display-the-total-number-of-appointments-for-the-current-day-list-each-appointment-separately-with-customer-name-service-time-and-status-provide-a-dedicated-chat-box-for-each-appointment-for-direct-communication-between-owner-and-the-respective-customer",
+      "featureTitle": "Implement the Owner Home section: allow the owner to post daily status or announcements; provide a calendar interface to select and mark multiple dates as holidays; automatically disable bookings on selected holiday dates; display the total number of appointments for the current day; list each appointment separately with customer name, service, time, and status; provide a dedicated chat box for each appointment for direct communication between owner and the respective customer.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/AppointmentChatBox.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-the-appointments-of-the-day-section-in-the-owner-dashboard-display-a-detailed-list-of-appointments-including-customer-name-selected-service-date-time-phone-number-and-request-description-include-appointment-status-tracking-with-states-confirmed-pending-completed-cancelled-allow-direct-chat-access-per-appointment",
+      "featureTitle": "Implement the Appointments of the Day section in the Owner Dashboard: display a detailed list of appointments including customer name, selected service, date, time, phone number, and request description; include appointment status tracking with states: Confirmed, Pending, Completed, Cancelled; allow direct chat access per appointment.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/OwnerAppointmentsOfDay.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-the-manage-services-section-in-the-owner-dashboard-preload-the-following-default-services-threading-waxing-d-tan-facial-body-massage-haircuts-styling-hair-spa-treatments-root-touch-up-makeup-packages-temporary-straight-global-hair-colour-for-each-service-allow-entry-of-normal-price-and-discounted-price-automatically-calculate-and-display-the-discount-percentage-display-the-discounted-price-prominently-show-the-normal-price-with-strike-through-allow-editing-and-deleting-services-provide-option-to-add-new-services-and-create-categories-under-new-services",
+      "featureTitle": "Implement the Manage Services section in the Owner Dashboard. Preload the following default services: Threading, Waxing, D-Tan, Facial, Body Massage, Haircuts & Styling, Hair Spa & Treatments, Root Touch Up, Makeup Packages, Temporary Straight, Global Hair Colour. For each service: allow entry of Normal Price and Discounted Price; automatically calculate and display the discount percentage; display the discounted price prominently; show the normal price with strike-through; allow editing and deleting services; provide option to add new services and create categories under new services.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/ManageServices.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-the-theme-customization-section-in-the-owner-dashboard-provide-50-premium-themes-provide-50-font-styles-allow-the-owner-to-change-theme-colors-and-typography-ensure-changes-sync-across-all-logged-in-devices",
+      "featureTitle": "Implement the Theme & Customization section in the Owner Dashboard: provide 50+ premium themes; provide 50+ font styles; allow the owner to change theme colors and typography; ensure changes sync across all logged-in devices.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/ThemeCustomization.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-the-reviews-section-in-the-owner-dashboard-display-all-customer-reviews-with-star-ratings-allow-the-owner-to-reply-to-each-review",
+      "featureTitle": "Implement the Reviews section in the Owner Dashboard: display all customer reviews with star ratings; allow the owner to reply to each review.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/OwnerReviews.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-the-profile-section-in-the-owner-dashboard-allow-editing-of-business-name-contact-number-and-address-display-business-information-clearly-pre-populate-with-business-name-enrich-ladies-beauty-parlour-owner-savita-m-c-contact-70906-43373-address-opposite-r-club-gym-near-rajeev-nagar-circle-hubli-karnataka-580021",
+      "featureTitle": "Implement the Profile section in the Owner Dashboard: allow editing of business name, contact number, and address; display business information clearly. Pre-populate with: Business Name: Enrich Ladies Beauty Parlour, Owner: Savita M C, Contact: 70906 43373, Address: Opposite R Club Gym, Near Rajeev Nagar Circle, Hubli, Karnataka – 580021.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/OwnerProfile.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-the-customer-dashboard-homepage-with-a-three-dot-menu-containing-home-our-services-book-appointment-reviews-my-profile-and-logout-include-a-floating-book-appointment-button-at-the-bottom-of-the-homepage",
+      "featureTitle": "Build the Customer Dashboard homepage with a three-dot menu containing: Home, Our Services, Book Appointment, Reviews, My Profile, and Logout. Include a floating 'Book Appointment' button at the bottom of the homepage.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/CustomerLayout.tsx",
+        "frontend/src/pages/CustomerDashboard.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-the-3-step-appointment-booking-flow-for-customers-step-1-service-selection-display-all-services-with-discounted-price-highlighted-normal-price-struck-through-and-discount-percentage-shown-allow-service-selection-and-a-next-button-step-2-date-and-time-selection-provide-a-calendar-picker-and-time-slot-selection-prevent-booking-on-owner-marked-holidays-include-a-next-button-step-3-customer-details-form-fields-for-name-phone-number-email-auto-filled-from-login-and-request-description-provide-a-submit-button-after-submission-display-a-booking-confirmation-screen-with-full-appointment-details",
+      "featureTitle": "Implement the 3-step appointment booking flow for customers. Step 1 – Service Selection: display all services with discounted price highlighted, normal price struck through, and discount percentage shown; allow service selection and a Next button. Step 2 – Date and Time Selection: provide a calendar picker and time slot selection; prevent booking on owner-marked holidays; include a Next button. Step 3 – Customer Details Form: fields for Name, Phone Number, Email (auto-filled from login), and Request Description; provide a Submit button. After submission, display a booking confirmation screen with full appointment details.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/BookAppointment.tsx",
+        "frontend/src/pages/BookingConfirmation.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-12"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-reviews-section-for-customers-allow-customers-to-submit-star-ratings-and-written-reviews-for-services-they-have-used-reviews-must-be-stored-in-the-backend-and-visible-in-the-owner-s-reviews-section",
+      "featureTitle": "Implement a Reviews section for customers: allow customers to submit star ratings and written reviews for services they have used. Reviews must be stored in the backend and visible in the Owner's Reviews section.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/CustomerReviews.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-13"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-luxury-premium-ui-design-throughout-the-entire-application-use-a-purple-and-white-color-theme-with-elegant-gradients-soft-shadows-rounded-ui-components-premium-typography-and-extremely-smooth-animations-and-transitions-across-all-screens-the-design-must-maintain-a-luxury-beauty-salon-aesthetic-consistently",
+      "featureTitle": "Apply a luxury premium UI design throughout the entire application: use a purple and white color theme with elegant gradients, soft shadows, rounded UI components, premium typography, and extremely smooth animations and transitions across all screens. The design must maintain a luxury beauty salon aesthetic consistently.",
+      "files": [
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-14"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

@@ -1,0 +1,330 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-25T03:52:03.920Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 14,
+    "implemented": 14,
+    "items": [
+      {
+        "id": "REQ-1",
+        "summary": "Create a splash screen that displays the salon logo and the name 'Enrich Ladies Beauty Parlour'. The splash screen should be shown on first load before navigating to the login page.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/SplashScreen.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-10",
+        "summary": "Implement the Profile section in the Owner Dashboard: allow editing of business name, contact number, and address; display business information clearly. Pre-populate with: Business Name: Enrich Ladies Beauty Parlour, Owner: Savita M C, Contact: 70906 43373, Address: Opposite R Club Gym, Near Rajeev Nagar Circle, Hubli, Karnataka – 580021.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/OwnerProfile.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/OwnerProfile.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-11",
+        "summary": "Build the Customer Dashboard homepage with a three-dot menu containing: Home, Our Services, Book Appointment, Reviews, My Profile, and Logout. Include a floating 'Book Appointment' button at the bottom of the homepage.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/CustomerDashboard.tsx",
+          "frontend/src/components/CustomerLayout.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/CustomerDashboard.tsx",
+          "frontend/src/components/CustomerLayout.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-12",
+        "summary": "Implement the 3-step appointment booking flow for customers. Step 1 – Service Selection: display all services with discounted price highlighted, normal price struck through, and discount percentage shown; allow service selection and a Next button. Step 2 – Date and Time Selection: provide a calendar picker and time slot selection; prevent booking on owner-marked holidays; include a Next button. Step 3 – Customer Details Form: fields for Name, Phone Number, Email (auto-filled from login), and Request Description; provide a Submit button. After submission, display a booking confirmation screen with full appointment details.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/BookAppointment.tsx",
+          "frontend/src/pages/BookingConfirmation.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/BookAppointment.tsx",
+          "frontend/src/pages/BookingConfirmation.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-13",
+        "summary": "Implement a Reviews section for customers: allow customers to submit star ratings and written reviews for services they have used. Reviews must be stored in the backend and visible in the Owner's Reviews section.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/CustomerReviews.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/CustomerReviews.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-14",
+        "summary": "Apply a luxury premium UI design throughout the entire application: use a purple and white color theme with elegant gradients, soft shadows, rounded UI components, premium typography, and extremely smooth animations and transitions across all screens. The design must maintain a luxury beauty salon aesthetic consistently.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js",
+          "frontend/src/components/LuxuryButton.tsx",
+          "frontend/src/components/LuxuryCard.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Create a login page with an Email (Gmail ID) field, a Password field, a Sign In button, a Sign Up option for new users, a 'Continue with Google' option, and a 'Continue with Microsoft' option. Email and password fields must appear before the Google and Microsoft login options.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/LoginPage.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/LoginPage.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Implement role-based access control in the backend. If the login email matches 'enrichbeautyparlour29@gmail.com' and password 'Shreyash_29', authenticate as the Owner and load the Owner Dashboard. Any other valid registered email loads the Customer Dashboard. Store user accounts with email, hashed password, and role (owner or customer) in the backend.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/hooks/useUserRole.ts",
+          "frontend/src/components/RoleBasedRedirect.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-4",
+        "summary": "Build the Owner Dashboard with a three-dot menu at the top-right corner containing navigation items: Home, Appointments of the Day, Manage Services, Theme & Customization, Reviews, Profile, and Logout.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/OwnerDashboard.tsx",
+          "frontend/src/components/OwnerLayout.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/OwnerDashboard.tsx",
+          "frontend/src/components/OwnerLayout.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-5",
+        "summary": "Implement the Owner Home section: allow the owner to post daily status or announcements; provide a calendar interface to select and mark multiple dates as holidays; automatically disable bookings on selected holiday dates; display the total number of appointments for the current day; list each appointment separately with customer name, service, time, and status; provide a dedicated chat box for each appointment for direct communication between owner and the respective customer.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/OwnerHome.tsx",
+          "frontend/src/components/AppointmentChatBox.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/AppointmentChatBox.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-6",
+        "summary": "Implement the Appointments of the Day section in the Owner Dashboard: display a detailed list of appointments including customer name, selected service, date, time, phone number, and request description; include appointment status tracking with states: Confirmed, Pending, Completed, Cancelled; allow direct chat access per appointment.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/OwnerAppointmentsOfDay.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/OwnerAppointmentsOfDay.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-7",
+        "summary": "Implement the Manage Services section in the Owner Dashboard. Preload the following default services: Threading, Waxing, D-Tan, Facial, Body Massage, Haircuts & Styling, Hair Spa & Treatments, Root Touch Up, Makeup Packages, Temporary Straight, Global Hair Colour. For each service: allow entry of Normal Price and Discounted Price; automatically calculate and display the discount percentage; display the discounted price prominently; show the normal price with strike-through; allow editing and deleting services; provide option to add new services and create categories under new services.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/ManageServices.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/ManageServices.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-8",
+        "summary": "Implement the Theme & Customization section in the Owner Dashboard: provide 50+ premium themes; provide 50+ font styles; allow the owner to change theme colors and typography; ensure changes sync across all logged-in devices.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/ThemeCustomization.tsx",
+          "frontend/src/hooks/useTheme.ts",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/ThemeCustomization.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-9",
+        "summary": "Implement the Reviews section in the Owner Dashboard: display all customer reviews with star ratings; allow the owner to reply to each review.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/OwnerReviews.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/OwnerReviews.tsx",
+          "frontend/src/App.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/authorization/MixinAuthorization.mo",
+    "backend/authorization/access-control.mo",
+    "backend/main.mo",
+    "build-request.json",
+    "build-template/Dockerfile",
+    "build-template/LICENSE",
+    "build-template/README.md",
+    "build-template/deploy.sh",
+    "build-template/icp.yaml",
+    "build-template/package.json",
+    "build-template/pnpm-lock.yaml",
+    "build-template/pnpm-workspace.yaml",
+    "build-template/scripts/prune-unused-images.js",
+    "build-template/scripts/resize-images.js",
+    "build-template/src/backend/canister.yaml",
+    "build-template/src/backend/system-idl/aaaaa-aa.did",
+    "build-template/src/frontend/canister.yaml",
+    "build-template/src/frontend/components.json",
+    "build-template/src/frontend/env.json",
+    "build-template/src/frontend/eslint-rules/no-bigint-in-query-keys.js",
+    "build-template/src/frontend/eslint-rules/require-internet-identity-provider.js",
+    "build-template/src/frontend/eslint.config.js",
+    "build-template/src/frontend/package.json",
+    "build-template/src/frontend/postcss.config.js",
+    "build-template/src/frontend/src/components/ui/accordion.tsx",
+    "build-template/src/frontend/src/components/ui/alert-dialog.tsx",
+    "build-template/src/frontend/src/components/ui/alert.tsx",
+    "build-template/src/frontend/src/components/ui/aspect-ratio.tsx",
+    "build-template/src/frontend/src/components/ui/avatar.tsx",
+    "build-template/src/frontend/src/components/ui/badge.tsx",
+    "build-template/src/frontend/src/components/ui/breadcrumb.tsx",
+    "build-template/src/frontend/src/components/ui/button.tsx",
+    "build-template/src/frontend/src/components/ui/calendar.tsx",
+    "build-template/src/frontend/src/components/ui/card.tsx",
+    "build-template/src/frontend/src/components/ui/carousel.tsx",
+    "build-template/src/frontend/src/components/ui/chart.tsx",
+    "build-template/src/frontend/src/components/ui/checkbox.tsx",
+    "build-template/src/frontend/src/components/ui/collapsible.tsx",
+    "build-template/src/frontend/src/components/ui/command.tsx",
+    "build-template/src/frontend/src/components/ui/context-menu.tsx",
+    "build-template/src/frontend/src/components/ui/dialog.tsx",
+    "build-template/src/frontend/src/components/ui/drawer.tsx",
+    "build-template/src/frontend/src/components/ui/dropdown-menu.tsx",
+    "build-template/src/frontend/src/components/ui/form.tsx",
+    "build-template/src/frontend/src/components/ui/hover-card.tsx",
+    "build-template/src/frontend/src/components/ui/input-otp.tsx",
+    "build-template/src/frontend/src/components/ui/input.tsx",
+    "build-template/src/frontend/src/components/ui/label.tsx",
+    "build-template/src/frontend/src/components/ui/menubar.tsx",
+    "build-template/src/frontend/src/components/ui/navigation-menu.tsx",
+    "build-template/src/frontend/src/components/ui/pagination.tsx",
+    "build-template/src/frontend/src/components/ui/popover.tsx",
+    "build-template/src/frontend/src/components/ui/progress.tsx",
+    "build-template/src/frontend/src/components/ui/radio-group.tsx",
+    "build-template/src/frontend/src/components/ui/resizable.tsx",
+    "build-template/src/frontend/src/components/ui/scroll-area.tsx",
+    "build-template/src/frontend/src/components/ui/select.tsx",
+    "build-template/src/frontend/src/components/ui/separator.tsx",
+    "build-template/src/frontend/src/components/ui/sheet.tsx",
+    "build-template/src/frontend/src/components/ui/sidebar.tsx",
+    "build-template/src/frontend/src/components/ui/skeleton.tsx",
+    "build-template/src/frontend/src/components/ui/slider.tsx",
+    "build-template/src/frontend/src/components/ui/sonner.tsx",
+    "build-template/src/frontend/src/components/ui/switch.tsx",
+    "build-template/src/frontend/src/components/ui/table.tsx",
+    "build-template/src/frontend/src/components/ui/tabs.tsx",
+    "build-template/src/frontend/src/components/ui/textarea.tsx",
+    "build-template/src/frontend/src/components/ui/toggle-group.tsx",
+    "build-template/src/frontend/src/components/ui/toggle.tsx",
+    "build-template/src/frontend/src/components/ui/tooltip.tsx",
+    "build-template/src/frontend/src/hooks/use-mobile.tsx",
+    "build-template/src/frontend/src/lib/utils.ts",
+    "build-template/src/frontend/tsconfig.json",
+    "build-template/src/frontend/vite.config.js",
+    "build-template/tsconfig.json",
+    "caffeine.lock.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/public/assets/generated/homepage-banner.dim_1200x400.png",
+    "frontend/public/assets/generated/salon-logo.dim_512x512.png",
+    "frontend/public/assets/generated/splash-bg.dim_1080x1920.png",
+    "frontend/src/App.tsx",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/AppointmentChatBox.tsx",
+    "frontend/src/components/CustomerLayout.tsx",
+    "frontend/src/components/OwnerLayout.tsx",
+    "frontend/src/config.ts",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/lib/authStore.ts",
+    "frontend/src/lib/localStore.ts",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/BookAppointment.tsx",
+    "frontend/src/pages/BookingConfirmation.tsx",
+    "frontend/src/pages/CustomerDashboard.tsx",
+    "frontend/src/pages/CustomerProfile.tsx",
+    "frontend/src/pages/CustomerReviews.tsx",
+    "frontend/src/pages/LoginPage.tsx",
+    "frontend/src/pages/ManageServices.tsx",
+    "frontend/src/pages/OurServices.tsx",
+    "frontend/src/pages/OwnerAppointmentsOfDay.tsx",
+    "frontend/src/pages/OwnerDashboard.tsx",
+    "frontend/src/pages/OwnerProfile.tsx",
+    "frontend/src/pages/OwnerReviews.tsx",
+    "frontend/src/pages/SplashScreen.tsx",
+    "frontend/src/pages/ThemeCustomization.tsx",
+    "frontend/src/ui-summary.json",
+    "frontend/src/utils/StorageClient.ts",
+    "frontend/src/utils/urlParams.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

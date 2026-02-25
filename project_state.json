@@ -1,0 +1,198 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Premium Android-style web application for 'Enrich Ladies Beauty Parlour' owned by Savita M C. Features a luxury purple and white theme with elegant gradients, smooth animations, and premium typography. Includes splash screen, secure login with role-based access (owner vs customer), Owner Dashboard (appointments, service management, holiday blocking, announcements, reviews, profile, theme customization), Customer Dashboard (service browsing, 3-step appointment booking flow, reviews, profile), real-time updates, push notifications, and secure encrypted authentication.",
+  "architectural_notes": [
+    "Purple and white luxury theme with elegant gradients, soft shadows, rounded UI, premium typography, and smooth animations throughout",
+    "Role-based access: owner email (enrichbeautyparlour29@gmail.com) loads Owner Dashboard; all other valid emails load Customer Dashboard",
+    "Authentication must be encrypted and connected to a secure backend (Firebase or secure API-based database)",
+    "Google and Microsoft login require full authentication and mandatory privacy policy agreement; auto-create account if none exists",
+    "Real-time updates and push notifications required for appointment reminders",
+    "Confirmation emails sent to both owner Gmail and customer Gmail after booking"
+  ],
+  "known_issues": [
+    "Initial build attempt failed — retrying full build"
+  ],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Elegant luxury beauty parlour logo with floral and golden accent motifs on a deep purple background, circular badge style (salon-logo.dim_512x512.png)\n- Premium purple gradient splash screen background with soft bokeh light effects (splash-bg.dim_1080x1920.png)\n- Decorative purple and white banner for the customer homepage hero section with subtle floral pattern overlay (homepage-banner.dim_1200x400.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-splash-screen-that-displays-the-salon-logo-and-the-name-enrich-ladies-beauty-parlour-the-splash-screen-should-be-shown-on-first-load-before-navigating-to-the-login-page",
+      "title": "Create a splash screen that displays the salon logo and the name 'Enrich Ladies Beauty Parlour'. The splash screen should be shown on first load before navigating to the login page.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-login-page-with-an-email-gmail-id-field-a-password-field-a-sign-in-button-a-sign-up-option-for-new-users-a-continue-with-google-option-and-a-continue-with-microsoft-option-email-and-password-fields-must-appear-before-the-google-and-microsoft-login-options",
+      "title": "Create a login page with an Email (Gmail ID) field, a Password field, a Sign In button, a Sign Up option for new users, a 'Continue with Google' option, and a 'Continue with Microsoft' option. Email and password fields must appear before the Google and Microsoft login options.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-role-based-access-control-in-the-backend-if-the-login-email-matches-enrichbeautyparlour29-gmail-com-and-password-shreyash-29-authenticate-as-the-owner-and-load-the-owner-dashboard-any-other-valid-registered-email-loads-the-customer-dashboard-store-user-accounts-with-email-hashed-password-and-role-owner-or-customer-in-the-backend",
+      "title": "Implement role-based access control in the backend. If the login email matches 'enrichbeautyparlour29@gmail.com' and password 'Shreyash_29', authenticate as the Owner and load the Owner Dashboard. Any other valid registered email loads the Customer Dashboard. Store user accounts with email, hashed password, and role (owner or customer) in the backend.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-owner-dashboard-with-a-three-dot-menu-at-the-top-right-corner-containing-navigation-items-home-appointments-of-the-day-manage-services-theme-customization-reviews-profile-and-logout",
+      "title": "Build the Owner Dashboard with a three-dot menu at the top-right corner containing navigation items: Home, Appointments of the Day, Manage Services, Theme & Customization, Reviews, Profile, and Logout.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-owner-home-section-allow-the-owner-to-post-daily-status-or-announcements-provide-a-calendar-interface-to-select-and-mark-multiple-dates-as-holidays-automatically-disable-bookings-on-selected-holiday-dates-display-the-total-number-of-appointments-for-the-current-day-list-each-appointment-separately-with-customer-name-service-time-and-status-provide-a-dedicated-chat-box-for-each-appointment-for-direct-communication-between-owner-and-the-respective-customer",
+      "title": "Implement the Owner Home section: allow the owner to post daily status or announcements; provide a calendar interface to select and mark multiple dates as holidays; automatically disable bookings on selected holiday dates; display the total number of appointments for the current day; list each appointment separately with customer name, service, time, and status; provide a dedicated chat box for each appointment for direct communication between owner and the respective customer.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-appointments-of-the-day-section-in-the-owner-dashboard-display-a-detailed-list-of-appointments-including-customer-name-selected-service-date-time-phone-number-and-request-description-include-appointment-status-tracking-with-states-confirmed-pending-completed-cancelled-allow-direct-chat-access-per-appointment",
+      "title": "Implement the Appointments of the Day section in the Owner Dashboard: display a detailed list of appointments including customer name, selected service, date, time, phone number, and request description; include appointment status tracking with states: Confirmed, Pending, Completed, Cancelled; allow direct chat access per appointment.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-manage-services-section-in-the-owner-dashboard-preload-the-following-default-services-threading-waxing-d-tan-facial-body-massage-haircuts-styling-hair-spa-treatments-root-touch-up-makeup-packages-temporary-straight-global-hair-colour-for-each-service-allow-entry-of-normal-price-and-discounted-price-automatically-calculate-and-display-the-discount-percentage-display-the-discounted-price-prominently-show-the-normal-price-with-strike-through-allow-editing-and-deleting-services-provide-option-to-add-new-services-and-create-categories-under-new-services",
+      "title": "Implement the Manage Services section in the Owner Dashboard. Preload the following default services: Threading, Waxing, D-Tan, Facial, Body Massage, Haircuts & Styling, Hair Spa & Treatments, Root Touch Up, Makeup Packages, Temporary Straight, Global Hair Colour. For each service: allow entry of Normal Price and Discounted Price; automatically calculate and display the discount percentage; display the discounted price prominently; show the normal price with strike-through; allow editing and deleting services; provide option to add new services and create categories under new services.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-theme-customization-section-in-the-owner-dashboard-provide-50-premium-themes-provide-50-font-styles-allow-the-owner-to-change-theme-colors-and-typography-ensure-changes-sync-across-all-logged-in-devices",
+      "title": "Implement the Theme & Customization section in the Owner Dashboard: provide 50+ premium themes; provide 50+ font styles; allow the owner to change theme colors and typography; ensure changes sync across all logged-in devices.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-reviews-section-in-the-owner-dashboard-display-all-customer-reviews-with-star-ratings-allow-the-owner-to-reply-to-each-review",
+      "title": "Implement the Reviews section in the Owner Dashboard: display all customer reviews with star ratings; allow the owner to reply to each review.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-profile-section-in-the-owner-dashboard-allow-editing-of-business-name-contact-number-and-address-display-business-information-clearly-pre-populate-with-business-name-enrich-ladies-beauty-parlour-owner-savita-m-c-contact-70906-43373-address-opposite-r-club-gym-near-rajeev-nagar-circle-hubli-karnataka-580021",
+      "title": "Implement the Profile section in the Owner Dashboard: allow editing of business name, contact number, and address; display business information clearly. Pre-populate with: Business Name: Enrich Ladies Beauty Parlour, Owner: Savita M C, Contact: 70906 43373, Address: Opposite R Club Gym, Near Rajeev Nagar Circle, Hubli, Karnataka – 580021.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-customer-dashboard-homepage-with-a-three-dot-menu-containing-home-our-services-book-appointment-reviews-my-profile-and-logout-include-a-floating-book-appointment-button-at-the-bottom-of-the-homepage",
+      "title": "Build the Customer Dashboard homepage with a three-dot menu containing: Home, Our Services, Book Appointment, Reviews, My Profile, and Logout. Include a floating 'Book Appointment' button at the bottom of the homepage.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-3-step-appointment-booking-flow-for-customers-step-1-service-selection-display-all-services-with-discounted-price-highlighted-normal-price-struck-through-and-discount-percentage-shown-allow-service-selection-and-a-next-button-step-2-date-and-time-selection-provide-a-calendar-picker-and-time-slot-selection-prevent-booking-on-owner-marked-holidays-include-a-next-button-step-3-customer-details-form-fields-for-name-phone-number-email-auto-filled-from-login-and-request-description-provide-a-submit-button-after-submission-display-a-booking-confirmation-screen-with-full-appointment-details",
+      "title": "Implement the 3-step appointment booking flow for customers. Step 1 – Service Selection: display all services with discounted price highlighted, normal price struck through, and discount percentage shown; allow service selection and a Next button. Step 2 – Date and Time Selection: provide a calendar picker and time slot selection; prevent booking on owner-marked holidays; include a Next button. Step 3 – Customer Details Form: fields for Name, Phone Number, Email (auto-filled from login), and Request Description; provide a Submit button. After submission, display a booking confirmation screen with full appointment details.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-reviews-section-for-customers-allow-customers-to-submit-star-ratings-and-written-reviews-for-services-they-have-used-reviews-must-be-stored-in-the-backend-and-visible-in-the-owner-s-reviews-section",
+      "title": "Implement a Reviews section for customers: allow customers to submit star ratings and written reviews for services they have used. Reviews must be stored in the backend and visible in the Owner's Reviews section.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-luxury-premium-ui-design-throughout-the-entire-application-use-a-purple-and-white-color-theme-with-elegant-gradients-soft-shadows-rounded-ui-components-premium-typography-and-extremely-smooth-animations-and-transitions-across-all-screens-the-design-must-maintain-a-luxury-beauty-salon-aesthetic-consistently",
+      "title": "Apply a luxury premium UI design throughout the entire application: use a purple and white color theme with elegant gradients, soft shadows, rounded UI components, premium typography, and extremely smooth animations and transitions across all screens. The design must maintain a luxury beauty salon aesthetic consistently.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Splash screen with salon logo and name",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Login page with email/password, Google, and Microsoft auth options with role-based access",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Owner Dashboard with three-dot menu (Home, Appointments, Manage Services, Theme & Customization, Reviews, Profile, Logout)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Owner Home: daily status/announcements, holiday calendar, appointment count, per-appointment chat",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Appointments of the Day: detailed list with status tracking and chat access",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Manage Services: preloaded services, normal/discounted pricing, discount calculation, add/edit/delete services and categories",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Theme & Customization: 50+ themes, 50+ font styles, synced across devices",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Customer Dashboard with floating Book Appointment button and three-dot menu",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "3-step appointment booking flow: service selection, date/time, customer details with confirmation email",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Reviews section for both owner (reply to reviews) and customers (submit star ratings)",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Enrich Ladies Beauty Parlour",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

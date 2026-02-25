@@ -1,0 +1,316 @@
+{
+  "kind": "build_request",
+  "title": "Enrich Ladies Beauty Parlour – Full Application Build",
+  "projectName": "Enrich Ladies Beauty Parlour",
+  "priority": "high",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a splash screen that displays the salon logo and the name 'Enrich Ladies Beauty Parlour'. The splash screen should be shown on first load before navigating to the login page.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "The app must begin with a splash screen displaying the salon logo and name"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Splash screen displays salon name 'Enrich Ladies Beauty Parlour'",
+        "Splash screen shows the salon logo",
+        "Automatically transitions to the login page after a brief display"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Create a login page with an Email (Gmail ID) field, a Password field, a Sign In button, a Sign Up option for new users, a 'Continue with Google' option, and a 'Continue with Microsoft' option. Email and password fields must appear before the Google and Microsoft login options.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "The login page must contain Email (Gmail ID) field, Password field, Sign In button, Sign Up option for new users, Continue with Google option, and Continue with Microsoft option."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Email field appears first, followed by Password field",
+        "Sign In button is present",
+        "Sign Up option is visible for new users",
+        "Continue with Google button is present below the email/password fields",
+        "Continue with Microsoft button is present below the email/password fields"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Implement role-based access control in the backend. If the login email matches 'enrichbeautyparlour29@gmail.com' and password 'Shreyash_29', authenticate as the Owner and load the Owner Dashboard. Any other valid registered email loads the Customer Dashboard. Store user accounts with email, hashed password, and role (owner or customer) in the backend.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "If the login email matches the owner email (enrichbeautyparlour29@gmail.com) and password (Shreyash_29), load the Owner Dashboard. If the login email is any other valid customer email, load the Customer Dashboard."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Owner email and password combination routes to Owner Dashboard",
+        "Any other registered email routes to Customer Dashboard",
+        "Backend stores user accounts with email, password, and role",
+        "Unauthenticated users cannot access dashboards"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Build the Owner Dashboard with a three-dot menu at the top-right corner containing navigation items: Home, Appointments of the Day, Manage Services, Theme & Customization, Reviews, Profile, and Logout.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Display a homepage with a three-dot menu at the top-right corner including: Home, Appointments of the Day, Manage Services, Theme & Customization, Reviews, Profile, and Logout."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Three-dot menu icon is visible at top-right of Owner Dashboard",
+        "Tapping the menu shows all seven navigation items",
+        "Each menu item navigates to the correct section",
+        "Logout clears session and returns to login page"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Implement the Owner Home section: allow the owner to post daily status or announcements; provide a calendar interface to select and mark multiple dates as holidays; automatically disable bookings on selected holiday dates; display the total number of appointments for the current day; list each appointment separately with customer name, service, time, and status; provide a dedicated chat box for each appointment for direct communication between owner and the respective customer.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Allow owner to post daily status or announcements.",
+          "Provide calendar interface to select and mark multiple dates as holidays.",
+          "Display total number of appointments for the current day.",
+          "Provide a dedicated chat box for each appointment to enable direct communication between owner and respective customer."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Owner can write and publish a daily status/announcement visible on the app",
+        "Calendar allows selecting multiple holiday dates",
+        "Booking system blocks dates marked as holidays",
+        "Current day appointment count is displayed",
+        "Each appointment is listed with customer name, service, time, and status",
+        "Each appointment has a dedicated chat message box"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Implement the Appointments of the Day section in the Owner Dashboard: display a detailed list of appointments including customer name, selected service, date, time, phone number, and request description; include appointment status tracking with states: Confirmed, Pending, Completed, Cancelled; allow direct chat access per appointment.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Display detailed appointment list including customer name, selected service, date, time, phone number, and request description.",
+          "Include appointment status tracking (Confirmed, Pending, Completed, Cancelled).",
+          "Allow direct chat access per appointment."
+        ]
+      },
+      "acceptanceCriteria": [
+        "All appointment fields are displayed: name, service, date, time, phone, description",
+        "Owner can change appointment status among Confirmed, Pending, Completed, Cancelled",
+        "Chat button per appointment opens the dedicated chat box"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Implement the Manage Services section in the Owner Dashboard. Preload the following default services: Threading, Waxing, D-Tan, Facial, Body Massage, Haircuts & Styling, Hair Spa & Treatments, Root Touch Up, Makeup Packages, Temporary Straight, Global Hair Colour. For each service: allow entry of Normal Price and Discounted Price; automatically calculate and display the discount percentage; display the discounted price prominently; show the normal price with strike-through; allow editing and deleting services; provide option to add new services and create categories under new services.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Preload default services",
+          "Allow entry of Normal Price and Discounted Price.",
+          "Automatically calculate and display discount percentage.",
+          "Allow editing and deleting of services.",
+          "Provide option to add new services.",
+          "Allow creation of categories under new services."
+        ]
+      },
+      "acceptanceCriteria": [
+        "All 11 default services are preloaded",
+        "Owner can enter Normal Price and Discounted Price for each service",
+        "Discount percentage is automatically calculated and displayed",
+        "Discounted price is shown prominently; normal price has a strike-through",
+        "Owner can edit and delete any service",
+        "Owner can add new services and create categories"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Implement the Theme & Customization section in the Owner Dashboard: provide 50+ premium themes; provide 50+ font styles; allow the owner to change theme colors and typography; ensure changes sync across all logged-in devices.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Provide 50+ premium themes.",
+          "Provide 50+ font styles.",
+          "Allow owner to change theme colors and typography.",
+          "Ensure changes sync across all logged-in devices."
+        ]
+      },
+      "acceptanceCriteria": [
+        "At least 50 theme options are available",
+        "At least 50 font style options are available",
+        "Owner can select and apply a theme and font",
+        "Selected theme and font are stored in the backend and reflected for all users"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Implement the Reviews section in the Owner Dashboard: display all customer reviews with star ratings; allow the owner to reply to each review.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Display customer reviews and star ratings.",
+          "Allow owner to reply to reviews."
+        ]
+      },
+      "acceptanceCriteria": [
+        "All customer reviews and star ratings are listed",
+        "Owner can write and submit a reply to any review",
+        "Replies are stored and displayed under the respective review"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Implement the Profile section in the Owner Dashboard: allow editing of business name, contact number, and address; display business information clearly. Pre-populate with: Business Name: Enrich Ladies Beauty Parlour, Owner: Savita M C, Contact: 70906 43373, Address: Opposite R Club Gym, Near Rajeev Nagar Circle, Hubli, Karnataka – 580021.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Allow editing of business name, contact number, and address.",
+          "Display business information clearly."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Business name, contact number, and address are pre-populated",
+        "Owner can edit and save each field",
+        "Updated information is persisted in the backend"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Build the Customer Dashboard homepage with a three-dot menu containing: Home, Our Services, Book Appointment, Reviews, My Profile, and Logout. Include a floating 'Book Appointment' button at the bottom of the homepage.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Provide three-dot menu with Home, Our Services, Book Appointment, Reviews, My Profile, and Logout.",
+          "Include floating 'Book Appointment' button at bottom of homepage."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Three-dot menu is visible on Customer Dashboard",
+        "All six menu items are present and functional",
+        "Floating 'Book Appointment' button is visible at the bottom of the homepage",
+        "Tapping the floating button starts the booking flow"
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Implement the 3-step appointment booking flow for customers. Step 1 – Service Selection: display all services with discounted price highlighted, normal price struck through, and discount percentage shown; allow service selection and a Next button. Step 2 – Date and Time Selection: provide a calendar picker and time slot selection; prevent booking on owner-marked holidays; include a Next button. Step 3 – Customer Details Form: fields for Name, Phone Number, Email (auto-filled from login), and Request Description; provide a Submit button. After submission, display a booking confirmation screen with full appointment details.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Step 1 – Service Selection",
+          "Step 2 – Date and Time Selection",
+          "Step 3 – Customer Details Form",
+          "Display booking confirmation screen."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Step 1 shows all services with pricing and discount info; Next button advances to Step 2",
+        "Step 2 shows a calendar and time slots; holiday dates are blocked; Next advances to Step 3",
+        "Step 3 shows a form with Name, Phone, Email (auto-filled), and Description; Submit creates the booking",
+        "After submission, a confirmation screen shows full appointment details",
+        "Booking is stored in the backend and visible in the Owner Dashboard"
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "text": "Implement a Reviews section for customers: allow customers to submit star ratings and written reviews for services they have used. Reviews must be stored in the backend and visible in the Owner's Reviews section.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Reviews Section for both owner (reply to reviews) and customers (submit star ratings)"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Customer can select a star rating (1–5) and write a review",
+        "Review is submitted and stored in the backend",
+        "Review appears in the Owner Dashboard Reviews section"
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "text": "Apply a luxury premium UI design throughout the entire application: use a purple and white color theme with elegant gradients, soft shadows, rounded UI components, premium typography, and extremely smooth animations and transitions across all screens. The design must maintain a luxury beauty salon aesthetic consistently.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "luxury beauty salon design using a purple and white theme with elegant gradients, soft shadows, rounded UI components, premium typography, and extremely smooth animations and transitions across all screens"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Purple and white color palette is used throughout",
+        "Gradients and soft shadows are applied to key UI elements",
+        "All components use rounded corners",
+        "Animations and transitions are smooth on all screen changes",
+        "Typography is premium and consistent across all screens"
+      ]
+    }
+  ],
+  "constraints": [
+    "Use only purple and white as the primary color theme — no other color schemes unless specified by the owner's Theme & Customization selection",
+    "Owner email enrichbeautyparlour29@gmail.com must be the identifier for owner role detection",
+    "Holiday dates set by the owner must block customer bookings on those dates",
+    "All data must be persisted in the Motoko backend"
+  ],
+  "nonGoals": [
+    "Native Android APK or mobile app packaging",
+    "External email sending (e.g., SendGrid, SMTP)",
+    "Real-time WebSocket-based push notifications",
+    "Firebase or any external database",
+    "Google OAuth or Microsoft OAuth (standard web login only)"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Elegant luxury beauty parlour logo with floral and golden accent motifs on a deep purple background, circular badge style (salon-logo.dim_512x512.png)",
+      "Premium purple gradient splash screen background with soft bokeh light effects (splash-bg.dim_1080x1920.png)",
+      "Decorative purple and white banner for the customer homepage hero section with subtle floral pattern overlay (homepage-banner.dim_1200x400.png)"
+    ],
+    "edits": []
+  }
+}

@@ -1,0 +1,357 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Enrich Ladies Beauty Parlour – Frontend Implementation Plan",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create a splash screen displaying salon logo and name, automatically transitioning to the login page",
+      "acceptanceCriteria": [
+        "Splash screen displays salon name 'Enrich Ladies Beauty Parlour'",
+        "Splash screen shows the salon logo",
+        "Automatically transitions to the login page after a brief display"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/SplashScreen.tsx",
+          "operation": "create",
+          "description": "Create a splash screen component that displays the salon logo from frontend/public/assets/generated/salon-logo.dim_512x512.png and the text 'Enrich Ladies Beauty Parlour'. Include a fade-in animation and auto-redirect to login after 2.5 seconds using React Router navigation. Apply luxury purple gradient background from frontend/public/assets/generated/splash-bg.dim_1080x1920.png."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add a route for the splash screen at path '/' and wire it to redirect to '/login' after display. Ensure SplashScreen is the initial route shown on first app load."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Create a login page with email, password fields, Sign In button, Sign Up option, Continue with Google, and Continue with Microsoft",
+      "acceptanceCriteria": [
+        "Email field appears first, followed by Password field",
+        "Sign In button is present",
+        "Sign Up option is visible for new users",
+        "Continue with Google button is present below the email/password fields",
+        "Continue with Microsoft button is present below the email/password fields"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/LoginPage.tsx",
+          "operation": "create",
+          "description": "Create a login page with Email and Password input fields, a Sign In button, a Sign Up link, and Continue with Google and Continue with Microsoft buttons below the email/password section. Use the authorization component to support Internet Identity login. Apply luxury purple and white theme with rounded inputs, soft shadows, and smooth transitions. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add a route for the login page at path '/login' and wire LoginPage into the router."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Implement role-based access control with owner/customer dashboard routing based on authenticated user role",
+      "acceptanceCriteria": [
+        "Owner email and password combination routes to Owner Dashboard",
+        "Any other registered email routes to Customer Dashboard",
+        "Backend stores user accounts with email, password, and role",
+        "Unauthenticated users cannot access dashboards"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useUserRole.ts",
+          "operation": "create",
+          "description": "Create a custom hook that calls backend.getCallerUserRole() to determine if the authenticated user is an admin (owner) or user (customer). Use the authorization component to fetch user role from the backend. Cache the role using React Query. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/RoleBasedRedirect.tsx",
+          "operation": "create",
+          "description": "Create a component that uses useUserRole hook to check the authenticated user's role and redirects to /owner-dashboard if admin, or /customer-dashboard if user. Show a loading state while fetching the role. Apply luxury design with smooth transitions."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add protected routes for /owner-dashboard and /customer-dashboard. Integrate RoleBasedRedirect component after successful login to route users to the appropriate dashboard. Ensure unauthenticated users are redirected to /login."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Build Owner Dashboard with three-dot menu containing navigation items: Home, Appointments of the Day, Manage Services, Theme & Customization, Reviews, Profile, and Logout",
+      "acceptanceCriteria": [
+        "Three-dot menu icon is visible at top-right of Owner Dashboard",
+        "Tapping the menu shows all seven navigation items",
+        "Each menu item navigates to the correct section",
+        "Logout clears session and returns to login page"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/OwnerDashboard.tsx",
+          "operation": "create",
+          "description": "Create the Owner Dashboard page with a three-dot menu icon positioned at the top-right corner. Use a dropdown menu (shadcn/ui DropdownMenu component) to display navigation items: Home, Appointments of the Day, Manage Services, Theme & Customization, Reviews, Profile, and Logout. Wire each menu item to navigate to the corresponding section/page. Use the authorization component's logout functionality for the Logout option and clear React Query cache. Apply luxury purple theme with smooth animations."
+        },
+        {
+          "path": "frontend/src/components/OwnerLayout.tsx",
+          "operation": "create",
+          "description": "Create a layout component that wraps Owner Dashboard content and includes the three-dot menu in a consistent header. Ensure the layout applies luxury design styling with purple gradients and premium typography."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for /owner-dashboard that renders OwnerDashboard wrapped in OwnerLayout. Protect the route to require admin role using the authorization component."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Implement Owner Home section with daily status posting, holiday calendar, appointment count, appointment list with chat boxes",
+      "acceptanceCriteria": [
+        "Owner can write and publish a daily status/announcement visible on the app",
+        "Calendar allows selecting multiple holiday dates",
+        "Booking system blocks dates marked as holidays",
+        "Current day appointment count is displayed",
+        "Each appointment is listed with customer name, service, time, and status",
+        "Each appointment has a dedicated chat message box"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/OwnerHome.tsx",
+          "operation": "create",
+          "description": "Create the Owner Home page with a text area for posting daily status/announcements, a calendar interface (use shadcn/ui Calendar component or date picker) to select and mark multiple holiday dates, a display for the total number of today's appointments, and a list of appointments showing customer name, service, time, and status. Include a chat button per appointment that opens a dedicated chat message box. Fetch appointments using backend.getAppointments(). Apply luxury purple theme with smooth animations and rounded components."
+        },
+        {
+          "path": "frontend/src/components/AppointmentChatBox.tsx",
+          "operation": "create",
+          "description": "Create a chat box component for owner-customer communication on a specific appointment. Display chat history from the appointment's chatHistory array and allow the owner to send new messages. Use the backend to update the appointment with new chat entries. Apply luxury design with soft shadows and smooth transitions."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add a route for /owner/home that renders OwnerHome within OwnerLayout. Ensure it is accessible from the Owner Dashboard menu."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Implement Appointments of the Day section displaying detailed appointment list with status tracking and chat access",
+      "acceptanceCriteria": [
+        "All appointment fields are displayed: name, service, date, time, phone, description",
+        "Owner can change appointment status among Confirmed, Pending, Completed, Cancelled",
+        "Chat button per appointment opens the dedicated chat box"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/OwnerAppointmentsOfDay.tsx",
+          "operation": "create",
+          "description": "Create the Appointments of the Day page that displays a detailed list of today's appointments. Show customer name, selected service, date, time, phone number, and request description. Include a status dropdown (shadcn/ui Select component) allowing the owner to change appointment status (Confirmed, Pending, Completed, Cancelled). Add a chat button per appointment that opens AppointmentChatBox. Fetch appointments using backend.getAppointments() and update using backend.updateAppointment(). Apply luxury purple theme with premium typography and smooth animations."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add a route for /owner/appointments-today that renders OwnerAppointmentsOfDay within OwnerLayout. Wire it to the Owner Dashboard menu."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Implement Manage Services section with preloaded services, pricing, discount calculation, and service management",
+      "acceptanceCriteria": [
+        "All 11 default services are preloaded",
+        "Owner can enter Normal Price and Discounted Price for each service",
+        "Discount percentage is automatically calculated and displayed",
+        "Discounted price is shown prominently; normal price has a strike-through",
+        "Owner can edit and delete any service",
+        "Owner can add new services and create categories"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ManageServices.tsx",
+          "operation": "create",
+          "description": "Create the Manage Services page that displays a list of preloaded services: Threading, Waxing, D-Tan, Facial, Body Massage, Haircuts & Styling, Hair Spa & Treatments, Root Touch Up, Makeup Packages, Temporary Straight, Global Hair Colour. For each service, provide input fields for Normal Price and Discounted Price, automatically calculate and display the discount percentage. Show discounted price prominently and normal price with strike-through styling. Include Edit and Delete buttons per service and an Add New Service button. Use backend methods to store and retrieve service data. Apply luxury purple theme with rounded inputs, soft shadows, and smooth animations."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add a route for /owner/manage-services that renders ManageServices within OwnerLayout. Wire it to the Owner Dashboard menu."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Implement Theme & Customization section with 50+ themes, 50+ fonts, and real-time sync",
+      "acceptanceCriteria": [
+        "At least 50 theme options are available",
+        "At least 50 font style options are available",
+        "Owner can select and apply a theme and font",
+        "Selected theme and font are stored in the backend and reflected for all users"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ThemeCustomization.tsx",
+          "operation": "create",
+          "description": "Create the Theme & Customization page with a theme picker displaying 50+ premium theme options (color palettes) and a font picker with 50+ font style options. Allow the owner to select and preview themes and fonts. Store the selected theme and font in the backend for global application. Use a backend method to save and retrieve the theme/font settings. Apply luxury purple design with smooth transitions and premium typography."
+        },
+        {
+          "path": "frontend/src/hooks/useTheme.ts",
+          "operation": "create",
+          "description": "Create a custom hook that fetches the current theme and font settings from the backend and applies them globally to the application using CSS variables or Tailwind configuration. Cache the theme using React Query and update on changes."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add a route for /owner/theme-customization that renders ThemeCustomization within OwnerLayout. Wire it to the Owner Dashboard menu. Integrate useTheme hook at the app root to apply the selected theme globally."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Implement Reviews section for owner to view customer reviews and reply to them",
+      "acceptanceCriteria": [
+        "All customer reviews and star ratings are listed",
+        "Owner can write and submit a reply to any review",
+        "Replies are stored and displayed under the respective review"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/OwnerReviews.tsx",
+          "operation": "create",
+          "description": "Create the Owner Reviews page that displays all customer reviews with star ratings. Each review should have a reply input field and a submit button allowing the owner to write and post a reply. Fetch reviews from the backend and update with replies using backend methods. Apply luxury purple theme with premium typography and smooth animations."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add a route for /owner/reviews that renders OwnerReviews within OwnerLayout. Wire it to the Owner Dashboard menu."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Implement Owner Profile section with editable business information pre-populated with salon details",
+      "acceptanceCriteria": [
+        "Business name, contact number, and address are pre-populated",
+        "Owner can edit and save each field",
+        "Updated information is persisted in the backend"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/OwnerProfile.tsx",
+          "operation": "create",
+          "description": "Create the Owner Profile page with editable fields for business name, contact number, and address. Pre-populate with: Business Name: Enrich Ladies Beauty Parlour, Owner: Savita M C, Contact: 70906 43373, Address: Opposite R Club Gym, Near Rajeev Nagar Circle, Hubli, Karnataka – 580021. Include a Save button that persists changes to the backend. Fetch and update profile data using backend methods. Apply luxury purple theme with rounded inputs, soft shadows, and smooth animations."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add a route for /owner/profile that renders OwnerProfile within OwnerLayout. Wire it to the Owner Dashboard menu."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Build Customer Dashboard with three-dot menu and floating Book Appointment button",
+      "acceptanceCriteria": [
+        "Three-dot menu is visible on Customer Dashboard",
+        "All six menu items are present and functional",
+        "Floating 'Book Appointment' button is visible at the bottom of the homepage",
+        "Tapping the floating button starts the booking flow"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/CustomerDashboard.tsx",
+          "operation": "create",
+          "description": "Create the Customer Dashboard page with a three-dot menu containing navigation items: Home, Our Services, Book Appointment, Reviews, My Profile, and Logout. Use a dropdown menu (shadcn/ui DropdownMenu component) for the menu. Include a floating 'Book Appointment' button fixed at the bottom of the page that navigates to the booking flow. Include a hero section using the banner image from frontend/public/assets/generated/homepage-banner.dim_1200x400.png. Use the authorization component's logout functionality for Logout. Apply luxury purple theme with smooth animations and premium typography."
+        },
+        {
+          "path": "frontend/src/components/CustomerLayout.tsx",
+          "operation": "create",
+          "description": "Create a layout component that wraps Customer Dashboard content and includes the three-dot menu in a consistent header. Ensure the layout applies luxury design styling with purple gradients and premium typography."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for /customer-dashboard that renders CustomerDashboard wrapped in CustomerLayout. Protect the route to require user role using the authorization component."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Implement 3-step appointment booking flow: Service Selection, Date and Time Selection, Customer Details Form, and Confirmation",
+      "acceptanceCriteria": [
+        "Step 1 shows all services with pricing and discount info; Next button advances to Step 2",
+        "Step 2 shows a calendar and time slots; holiday dates are blocked; Next advances to Step 3",
+        "Step 3 shows a form with Name, Phone, Email (auto-filled), and Description; Submit creates the booking",
+        "After submission, a confirmation screen shows full appointment details",
+        "Booking is stored in the backend and visible in the Owner Dashboard"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/BookAppointment.tsx",
+          "operation": "create",
+          "description": "Create a multi-step booking flow page. Step 1 – Service Selection: Display all services with discounted price highlighted, normal price struck through, and discount percentage shown. Include a Next button. Step 2 – Date and Time Selection: Provide a calendar picker (shadcn/ui Calendar component) and time slot selection. Block holiday dates fetched from the backend. Include a Next button. Step 3 – Customer Details Form: Fields for Name, Phone Number, Email (auto-filled from logged-in user), and Request Description. Include a Submit button. Use backend.createAppointment() to submit the booking. Apply luxury purple theme with smooth step transitions, rounded inputs, soft shadows, and premium typography."
+        },
+        {
+          "path": "frontend/src/pages/BookingConfirmation.tsx",
+          "operation": "create",
+          "description": "Create a booking confirmation page that displays the full appointment details after successful submission: customer name, service, date, time, phone, and description. Include a button to return to the Customer Dashboard. Apply luxury purple theme with smooth animations."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add routes for /book-appointment (BookAppointment) and /booking-confirmation (BookingConfirmation). Wire the Book Appointment menu item and floating button to /book-appointment. Ensure booking flow redirects to /booking-confirmation on successful submission."
+        }
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "summary": "Implement Reviews section for customers to submit star ratings and written reviews",
+      "acceptanceCriteria": [
+        "Customer can select a star rating (1–5) and write a review",
+        "Review is submitted and stored in the backend",
+        "Review appears in the Owner Dashboard Reviews section"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/CustomerReviews.tsx",
+          "operation": "create",
+          "description": "Create the Customer Reviews page with a star rating selector (1–5 stars) and a text area for writing a review. Include a Submit button that saves the review to the backend. Display a list of the customer's previously submitted reviews. Use backend methods to create and fetch reviews. Apply luxury purple theme with smooth animations, rounded inputs, and premium typography."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add a route for /customer/reviews that renders CustomerReviews within CustomerLayout. Wire it to the Customer Dashboard menu."
+        }
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "summary": "Apply luxury premium UI design with purple and white theme, gradients, shadows, rounded components, premium typography, and smooth animations",
+      "acceptanceCriteria": [
+        "Purple and white color palette is used throughout",
+        "Gradients and soft shadows are applied to key UI elements",
+        "All components use rounded corners",
+        "Animations and transitions are smooth on all screen changes",
+        "Typography is premium and consistent across all screens"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Define global CSS variables for the luxury purple and white color palette. Include primary purple shades, white backgrounds, gradient definitions, soft shadow styles, and premium typography settings. Apply smooth transition defaults for all interactive elements."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend the Tailwind configuration with custom purple color palette, gradient utilities, shadow presets (soft, elegant), rounded corner defaults, and premium font families. Ensure all components inherit these luxury design tokens."
+        },
+        {
+          "path": "frontend/src/components/LuxuryButton.tsx",
+          "operation": "create",
+          "description": "Create a reusable luxury-styled button component with purple gradient background, rounded corners, soft shadows, premium typography, and smooth hover/active animations. Use this component throughout the application for consistent styling."
+        },
+        {
+          "path": "frontend/src/components/LuxuryCard.tsx",
+          "operation": "create",
+          "description": "Create a reusable luxury-styled card component with white background, soft shadows, rounded corners, and subtle border. Use this component for content sections throughout the application to maintain consistent luxury aesthetics."
+        }
+      ]
+    }
+  ]
+}
